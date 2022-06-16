@@ -38,6 +38,6 @@ jobs:
         with:
           name: dev-${{ env.BRANCH_NAME }}
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
-          files: vidivi.zip
+          files: ./vidivi.zip
           draft: true
           release: dev-${{ env.BRANCH_NAME }}
