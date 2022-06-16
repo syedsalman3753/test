@@ -31,5 +31,5 @@ jobs:
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
-          files: vidivi.py
+          files: vidivi.zip
           draft: true
