@@ -39,4 +39,4 @@ jobs:
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
           files: vidivi.zip
           draft: true
-          release: ${{ env.BRANCH_NAME }}
+          release: mosipdev-${{ env.BRANCH_NAME }}
