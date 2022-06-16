@@ -36,7 +36,8 @@ jobs:
       - name: Update App as draft release
         uses: johnwbyrd/update-release@v1.0.0
         with:
+          name: dev-${{ env.BRANCH_NAME }}
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
           files: vidivi.zip
           draft: true
-          release: mosipdev-${{ env.BRANCH_NAME }}
+          release: dev-${{ env.BRANCH_NAME }}
