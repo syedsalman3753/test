@@ -25,11 +25,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, world! && pwd
 
       - name: Update App as draft release
         uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
-          files: ./vidivi.py
+          files: vidivi.py
           draft: true
