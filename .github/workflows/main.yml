@@ -23,6 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Setup branch and env
+        run: |
+            # Strip git ref prefix from version
+            echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+            echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
+        
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world! && pwd && ls 
@@ -33,3 +39,4 @@ jobs:
           token: ${{ secrets.DRAFT_RELEASE_SECRET }}
           files: vidivi.zip
           draft: true
+          release: ${{ env.BRANCH_NAME }}
