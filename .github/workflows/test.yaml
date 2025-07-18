@@ -1,0 +1,29 @@
+name: System Resource Check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  resource-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check IP Address
+        run: |
+          echo "IP Address:"
+          curl -s https://api.ipify.org
+
+      - name: Check CPU Usage
+        run: |
+          echo "CPU Usage:"
+          lscpu
+
+      - name: Check Memory Usage
+        run: |
+          echo "Memory Usage:"
+          free -h
+          echo "resolv file"
+          cat /etc/resolv.conf
+          echo "user $USER and ports"
+          ufw status
+          sleep infinity
