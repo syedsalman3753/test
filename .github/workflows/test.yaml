@@ -18,7 +18,8 @@ jobs:
           sudo mkdir -p /var/run/sshd
           sudo /usr/sbin/sshd
           echo "sshd started"
-    
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Check IP Address
         run: |
           echo "IP Address:"
