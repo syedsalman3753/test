@@ -8,11 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install OpenSSH Server
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssh-server
+
+      - name: Start SSHD
+        run: |
+          sudo mkdir -p /var/run/sshd
+          sudo /usr/sbin/sshd
+          echo "sshd started"
+    
       - name: Check IP Address
         run: |
           echo "IP Address:"
           curl -s https://api.ipify.org
-
+      - name: Get public IP via dig (OpenDNS)
+        run: |
+          echo "Public IP using dig:"
+          dig +short myip.opendns.com @resolver1.opendns.com
+      
       - name: Check CPU Usage
         run: |
           echo "CPU Usage:"
@@ -27,3 +42,5 @@ jobs:
           echo "user $USER and ports"
           sudo ufw status
           sleep infinity
+          
+
