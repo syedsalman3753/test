@@ -25,5 +25,5 @@ jobs:
           echo "resolv file"
           cat /etc/resolv.conf
           echo "user $USER and ports"
-          ufw status
+          sudo ufw status
           sleep infinity
